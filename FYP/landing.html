@@ -1,0 +1,141 @@
+<html>
+   <head>
+      <title> Weather App</title>
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+      <link rel="stylesheet" href="landing.css">
+      <script src="script.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   </head>
+   <body>
+      <div class="header">
+         <div class="location">
+            <span style="font-size: large; font:bold;"> Shah Alam, Selangor 28°C </span>
+         </div>
+         <div class="search">
+            <input type="text" placeholder="Address, City or Zip Code">
+            <button type="submit">
+               <i class="fa fa-search"></i>
+            </button>
+         </div>
+      </div>
+      <!-- <div id="overlay"></div> -->
+      <div id="bannerPopup"> WEBSITE APPS SPECIALLY FOR FARMERS!! <button onclick="closeBannerPopup()" style="margin-left: 35%; color: white; background-color: black;">✕</button>
+      </div>
+      <div class="tabs">
+         <button class="tablink active" onclick="window.location.href='landing.html'" id="defaultOpen">TODAY</button>
+         <button class="tablink" onclick="window.location.href='hourly.html'" id="defaultOpen">HOURLY</button>
+         <button class="tablink" onclick="window.location.href='day.html'" id="defaultOpen">DAILY</button>
+         <button class="tablink" onclick="window.location.href='monthly.html'" id="defaultOpen">MONTHLY</button>
+         <button class="tablink" onclick="window.location.href='activities.html'" id="defaultOpen">ACTIVITIES</button>
+      </div>
+      <div class="map">
+         <div class="gmap_canvas">
+            <iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=1453&amp;height=353&amp;hl=en&amp;q=shah alam&amp;t=k&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+            <a href="https://sprunkin.com/">Sprunki</a>
+         </div>
+      </div>
+      <div class="content">
+         <div class="forecast">
+            <div class="title">
+               <h2>TODAY </h2>
+               <h2>THU, 13/06/2024</h2>
+            </div>
+            <p style="font-size: large;"> Cloudy conditions tonight, continuing through the morning. Wind gusts are up to 5mph. </p>
+            <div class="details">
+               <div class="time">
+                  <img alt="Cloudy icon" height="50" src="https://storage.googleapis.com/a1aa/image/7B8qExJtzh67CVfrSd8zPM9PtmnizLfPwaJ2e2V1tP00PXmnA.jpg" width="50" />
+                  <p> Now </p>
+                  <p> 26°C </p>
+               </div>
+               <div class="time">
+                  <img alt="Cloudy icon" height="50" src="https://storage.googleapis.com/a1aa/image/7B8qExJtzh67CVfrSd8zPM9PtmnizLfPwaJ2e2V1tP00PXmnA.jpg" width="50" />
+                  <p> 02 </p>
+                  <p> 26°C </p>
+               </div>
+               <div class="time">
+                  <img alt="Cloudy icon" height="50" src="https://storage.googleapis.com/a1aa/image/7B8qExJtzh67CVfrSd8zPM9PtmnizLfPwaJ2e2V1tP00PXmnA.jpg" width="50" />
+                  <p> 03 </p>
+                  <p> 25°C </p>
+               </div>
+               <div class="time">
+                  <img alt="Cloudy icon" height="50" src="https://storage.googleapis.com/a1aa/image/7B8qExJtzh67CVfrSd8zPM9PtmnizLfPwaJ2e2V1tP00PXmnA.jpg" width="50" />
+                  <p> 04 </p>
+                  <p> 25°C </p>
+               </div>
+            </div>
+         </div>
+         <div class="weather">
+            <h2> Shah Alam, Malaysia </h2>
+            <h3> MONDAY </h3>
+            <div class="temp"> 26°C </div>
+            <p> MAX: 33°C, MIN: 27°C </p>
+            <div class="details">
+               <div>
+                  <i class="fas fa-tint"></i>
+                  <p> 20% </p>
+               </div>
+               <div>
+                  <i class="fas fa-wind"></i>
+                  <p> 15 KM/H </p>
+               </div>
+               <div>
+                  <i class="fas fa-compass"></i>
+                  <p> WEST </p>
+               </div>
+               <div>
+                  <i class="fas fa-thermometer-half"></i>
+                  <p> 1023.0 MB </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="footer">
+         <div>
+            <h3> Basic Information </h3>
+            <ul>
+               <li> Copyright Notice: © 2024 WeatherWise. All Rights Reserved. </li>
+            </ul>
+         </div>
+         <div>
+            <h3> Navigation Links </h3>
+            <ul>
+               <a href="hourly.html">Hourly</a>
+               <li>
+                  <a href="day.html">Daily</a>
+               </li>
+               <li>
+                  <a href="monthly.html">Monthly</a>
+               </li>
+               <li>
+                  <a href="activities.html">Activites</a>
+               </li>
+            </ul>
+         </div>
+         <div>
+            <h3> Company Information </h3>
+            <ul>
+               <li> Contact us at support@weatherwise.com </li>
+            </ul>
+         </div>
+         <div>
+            <h3> Social Media Links </h3>
+            <ul>
+               <li>
+                  <i class="fab fa-facebook-f"></i> Facebook
+               </li>
+               <li>
+                  <i class="fab fa-twitter"></i> Twitter
+               </li>
+               <li>
+                  <i class="fab fa-instagram"></i> Instagram
+               </li>
+               <li>
+                  <i class="fab fa-linkedin-in"></i> LinkedIn
+               </li>
+            </ul>
+         </div>
+      </div>
+      <!-- <div class="scroll-up"><i class="fas fa-arrow-up"></i></div> -->
+   </body>
+</html>

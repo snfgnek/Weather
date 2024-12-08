@@ -1,0 +1,311 @@
+<html>
+   <head>
+      <title> Day - Weather App </title>
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+      <script src="script.js"></script>
+      <style>
+         body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #7db9e8, #1e3c72);
+            color: #000;
+         }
+
+         .header {
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+         }
+
+         .header .location {
+            font-size: 18px;
+         }
+
+         .header .search {
+            display: flex;
+            align-items: center;
+         }
+
+         .header .search input {
+            padding: 5px;
+            margin-right: 5px;
+         }
+
+         .header .search button {
+            padding: 5px;
+         }
+
+         #bannerPopup {
+            background-color: yellow;
+            color: black;
+            padding: 15px;
+            font-size: larger;
+            text-align: center;
+            width: 50%;
+            font-weight: bold;
+            font-stretch: expanded;
+            position: fixed;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 2px solid black;
+            border-radius: 5px;
+            z-index: 1000;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+         }
+
+         .tabs {
+            display: flex;
+            justify-content: center;
+            background-color: #d3d3d3;
+         }
+
+         .tabs button {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            background-color: #00008b;
+            font-size: 16px;
+            cursor: pointer;
+         }
+
+         .tabs button.active {
+            background-color: #3b6acf;
+         }
+
+         .tablink {
+            background-color: #555;
+            color: white;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            font-size: 17px;
+            width: 25%;
+         }
+         
+
+         .tablink:hover {
+            background-color: #3b6acf;
+         }
+
+         .tabcontent {
+            color: white;
+            display: none;
+            padding: 50px;
+            text-align: center;
+         }
+
+         .content {
+            padding: 20px;
+         }
+
+         .content h1 {
+            margin: 0;
+            padding: 20px 0;
+         }
+
+         .weather-card {
+            background-color: #fff;
+            border: 1px solid #000;
+            padding: 20px;
+            margin-bottom: 80px;
+         }
+
+         .weather-card .date {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: xx-large;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+         }
+
+         .weather-card .date img {
+            width: 50px;
+            height: 50px;
+         }
+
+         .weather-card .temperature {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+            font-size: large;
+         }
+
+         .weather-card .details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 10px;
+         }
+
+         .weather-card .details div {
+            border: 1px solid #000;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            font-size: x-large;
+         }
+
+         .footer-night {
+            text-align: right;
+            padding: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #ffffff;
+            font-size: larger;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: #494558;
+         }
+         
+         .footer {
+         background-color: #00008b;
+         color: #fff;
+         padding: 35px;
+         display: flex;
+         margin-top: 4%;
+         padding-bottom: 3%;
+        }
+        .footer div {
+            width: 30%;
+        }
+        .footer div ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer div ul li {
+            margin: 5px 0;
+        }
+        a {
+        color: white; /* Custom color code */
+        text-decoration: none;
+      }
+      
+      a:hover {
+        color: #00d9ff; /* Custom hover color */
+      }
+      
+      </style>
+   </head>
+   <body>
+      <div class="header">
+         <div class="location">
+            <span style="font-size: large; font:bold;"> Shah Alam, Selangor 28°C </span>
+         </div>
+         <div class="search">
+            <input type="text" placeholder="Address, City or Zip Code">
+            <button type="submit">
+               <i class="fa fa-search"></i>
+            </button>
+         </div>
+      </div>
+      <div id="bannerPopup"> WEBSITE APPS SPECIALLY FOR FARMERS!! <button onclick="closeBannerPopup()" style="margin-left: 35%; color: white; background-color: black;">✕</button>
+      </div>
+      <div class="tabs">
+         <button class="tablink" onclick="window.location.href='today.html'" id="defaultOpen">TODAY</button>
+         <button class="tablink" onclick="window.location.href='hourly.html'" id="defaultOpen">HOURLY</button>
+         <button class="tablink active" onclick="window.location.href='day.html'" id="defaultOpen">DAILY</button>
+         <button class="tablink" onclick="window.location.href='monthly.html'" id="defaultOpen">MONTHLY</button>
+         <button class="tablink" onclick="window.location.href='activities.html'" id="defaultOpen">ACTIVITIES</button>
+      </div>
+      <div class="content">
+         <h1> JUNE 25 | 2024 </h1>
+         <div class="weather-card">
+            <div class="date">
+               <div>
+                  <div> TUE </div>
+                  <div> 25/6 </div>
+               </div>
+               <!-- <img alt="Partly cloudy icon" height="50" src="https://storage.googleapis.com/a1aa/image/CPf55a1lkb2qHC8oFdbf790ZW3f3eSayHUxzOKBQtzl0KEaPB.jpg" width="50" /> -->
+               <div>
+                  <div> DAY </div>
+                  <div>29°C</div>
+               </div>
+            </div>
+            <div class="temperature">
+               <div> Partly cloudy and warm </div>
+            </div>
+            <div class="details">
+               <div>
+                  <span> Feels Like </span>
+                  <span> 31°C </span>
+               </div>
+               <div>
+                  <span> Wind </span>
+                  <span> ESE 6km/h </span>
+               </div>
+               <div>
+                  <span> Cloud Cover </span>
+                  <span> 50% </span>
+               </div>
+               <div>
+                  <span> Wind Gusts </span>
+                  <span> 20 km/h </span>
+               </div>
+               <div>
+                  <span> Probability of Thunderstorms </span>
+                  <span> 6% </span>
+               </div>
+               <div>
+                  <span> Probability of Precipitation </span>
+                  <span> 25% </span>
+               </div>
+            </div>
+         </div>
+         <div class="footer-night">
+            <button class="footer-night" onclick="window.location.href='night.html'" id="defaultOpen">NIGHT</button>
+            <i class="fas fa-chevron-right"></i>
+         </div>
+        </div>
+         <br>
+         <div class="footer">
+            <div>
+               <h3> Basic Information </h3>
+               <ul>
+                  <li> Copyright Notice: © 2024 WeatherWise. All Rights Reserved. </li>
+               </ul>
+            </div>
+            <div>
+               <h3> Navigation Links </h3>
+               <ul>
+                  <a href="hourly.html">Hourly</a>
+                  <li>
+                     <a href="day.html">Daily</a>
+                  </li>
+                  <li>
+                     <a href="monthly.html">Monthly</a>
+                  </li>
+                  <li>
+                     <a href="activities.html">Activites</a>
+                  </li>
+               </ul>
+            </div>
+            <div>
+               <h3> Company Information </h3>
+               <ul>
+                  <li> Contact us at support@weatherwise.com </li>
+               </ul>
+            </div>
+            <div>
+               <h3> Social Media Links </h3>
+               <ul>
+                  <li>
+                     <i class="fab fa-facebook-f"></i> Facebook
+                  </li>
+                  <li>
+                     <i class="fab fa-twitter"></i> Twitter
+                  </li>
+                  <li>
+                     <i class="fab fa-instagram"></i> Instagram
+                  </li>
+                  <li>
+                     <i class="fab fa-linkedin-in"></i> LinkedIn
+                  </li>
+               </ul>
+            </div>
+         </div>
+   </body>
+</html>
